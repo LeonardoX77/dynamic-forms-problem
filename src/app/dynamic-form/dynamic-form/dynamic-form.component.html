@@ -1,0 +1,44 @@
+<!--
+    Render Component Dynamically:
+    https://stackoverflow.com/a/55394417/1683040
+-->
+
+<form [formGroup]="form">
+    <ng-container
+        *ngFor="let component of fields"
+        dynamicComponent [componentConfig]="component"
+        [group]="form">
+    </ng-container>
+
+
+    <!-- <ng-container *ngIf="customUserTemplate; else useNormalTemplateDirective">
+        <div>customUserTemplate:</div>
+        <div *ngFor="let component of fields">
+            <ng-container
+                #localCustomUserTemplate
+                *ngTemplateOutlet="customUserTemplate, context: { $implicit: component }">
+            </ng-container>
+        </div>
+    </ng-container>
+    
+    <ng-template #useNormalTemplateDirective>
+        <div>directive:</div>
+        <ng-template
+            *ngFor="let component of fields"
+            dynamicComponent [componentConfig]="component"
+            [group]="form">
+        </ng-template>
+    </ng-template>
+    
+    <ng-template #useNormalTemplateComponent>
+        <div>component:</div>
+        <app-dynamic-component
+            *ngFor="let component of fields"
+            [componentConfig]="component" [group]="form">
+        </app-dynamic-component>
+    </ng-template> -->
+
+
+</form>
+
+{{ form.value | json }}
